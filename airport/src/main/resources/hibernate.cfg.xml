@@ -1,0 +1,36 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name = "hibernate.dialect">
+            org.hibernate.dialect.Oracle12cDialect
+        </property>
+
+        <property name = "hibernate.connection.driver_class">
+            oracle.jdbc.driver.OracleDriver
+        </property>
+
+        <!-- Assume test is the database name -->
+
+        <property name = "hibernate.connection.url">
+            jdbc:oracle:thin:@//localhost:1521/orcl
+        </property>
+
+        <property name = "hibernate.connection.username">
+            donotpanic
+        </property>
+
+        <property name = "hibernate.connection.password">
+            6panicOr
+        </property>
+        <property name="show_sql">true</property>
+
+        <mapping class="com.donotpanic.airport.domain.aircraft.AircraftModel"/>
+        <mapping class="com.donotpanic.airport.domain.aircraft.AircraftColor"/>
+        <!-- List of XML mapping files -->
+        <!--<mapping resource = "Employee.hbm.xml"/>-->
+
+    </session-factory>
+</hibernate-configuration>

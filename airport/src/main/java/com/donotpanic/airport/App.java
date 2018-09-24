@@ -16,8 +16,8 @@ import java.util.Random;
 public class App {
     private static List<Airport> knownAirports;
     private static List<Plane> knownPlanes;
-    public static void main(String[] args){
-        ApplicationContext mainContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+    public static void runApplication(ApplicationContext mainContext){
+//        ApplicationContext mainContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         CommonServices.getCommonServices().setMainContext(mainContext);
         CommonServices.getCommonServices().getGlobalEngine().startVisualisation();
         try{
@@ -30,16 +30,16 @@ public class App {
         ((AirportDAO)mainContext.getBean("OracleDAO")).registerCoordinate(CommonServices.getCommonServices().getCoordinateFactory().getRandomCoordinates());
     }
 
-    private static List<Airport> createAirports(AirportFactory airportFactory) throws Throwable{
-        List<Airport> airports = new ArrayList<>();
-
-        airports.add(airportFactory.getInstanceAirport("Borispol"));
-        airports.add(airportFactory.getInstanceAirport("John F. Kennedy"));
-        airports.add(airportFactory.getInstanceAirport("Heathrow"));
-        airports.add(airportFactory.getInstanceAirport("Seattle-Tacoma"));
-
-        return airports;
-    }
+//    private static List<Airport> createAirports(AirportFactory airportFactory) throws Throwable{
+//        List<Airport> airports = new ArrayList<>();
+//
+//        airports.add(airportFactory.getInstanceAirport("Borispol"));
+//        airports.add(airportFactory.getInstanceAirport("John F. Kennedy"));
+//        airports.add(airportFactory.getInstanceAirport("Heathrow"));
+//        airports.add(airportFactory.getInstanceAirport("Seattle-Tacoma"));
+//
+//        return airports;
+//    }
 
     public static Airport getRandomKnownAirport(){
         Airport result = null;
